@@ -1,0 +1,68 @@
+/*Only in the blog page we change its position */
+.blog-page{
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.blog-page .footer{
+  position: relative;
+  margin-top: 50px;
+}
+
+.bigBox{
+  /* It fills up the empty space even when there is only one post. */
+  min-height: calc(100vh - 220px); ;
+}
+
+.blog {
+  font-family: 'Amatic SC', cursive;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.blogBox{
+  border: 1px solid black;
+  width: 70%;
+  margin: 20px auto;
+}
+
+.wrapperPost{
+  padding: 20px;
+}
+
+.wrapperPost:hover{
+  cursor: pointer;
+}
+
+.datePosts{
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 20px;
+  margin-bottom: -25px;
+}
+
+.titlePosts{
+  font-family: 'Playfair Display', serif;
+  margin-left: 20px;
+  font-size: 2rem;
+   /* Removes all trash decoration that certain react components add */
+   text-decoration: none;
+   color: inherit;
+}
+
+.titlePosts:hover{
+  cursor: pointer;
+  color: rgb(50, 50, 50);
+}
+
+.contentPosts{
+  font-family: 'Playfair Display', serif;
+  margin-left: 20px;
+}
+
+.no-decoration{
+   /* Removes all trash decoration that certain react components add */
+   text-decoration: none;
+   color: inherit;
+}
+

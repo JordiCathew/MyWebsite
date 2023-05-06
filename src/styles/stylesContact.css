@@ -1,0 +1,66 @@
+
+.contentContact {
+    /*margin-top: 100px; /* Change this value to match the height of your header */
+    justify-content: center;
+    align-items: center;
+}
+
+.contentContact p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 570;
+    text-align: left;
+    line-height: 2;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.buttons-wrapper{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center; 
+}
+
+.cv{
+    margin: 0 15px; /* add some space between the buttons */
+    background-color: #ffffff; /* white background */
+    border: 2px solid #ff0000; /* 2px red border */
+    border-radius: 5px; /* rounded corners */
+    padding: 5px 20px; /* button padding */
+    color: #ff0000; /* red text */
+    font-family: 'Schibsted Grotesk', sans-serif;
+    font-size: 1.1rem;
+    height: 45px;
+    border-radius: 8px;
+    /* Add a maximum width to the button */
+    max-width: 100%;
+}
+
+.cv:hover{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    background-color: #ff0000; /* red background on hover */
+    color: #ffffff; /* white text on hover */
+}
+
+.fa-file-pdf{
+    font-size: 26px;
+}
+
+
+/**************************** Responsive design *****************************/
+
+/* Smaller screens such as phones */
+@media (max-width: 768px) {
+    .contentContact{
+        margin: 30px 20px;
+    }
+
+    .cv{
+        font-size: 0.6rem;
+        max-width: 150px; /* adjust this value based on your content */
+        width: 100%;
+    }
+
+
+}

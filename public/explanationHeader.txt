@@ -1,0 +1,37 @@
+Sure! Here's an explanation of each line of code:
+
+background-image: linear-gradient(#b20000 0 0);: This sets the background image of 
+the .active element to a linear gradient that starts with the color #b20000 at 0% of 
+the gradient and ends with the same color at 100% of the gradient. The 0 0 values 
+after the color indicate the starting and ending points of the gradient (in this case,
+it starts and ends at the same point, which means it's a solid color).
+
+background-position: left -100% bottom 0;: This sets the starting position of
+the background image to the left of the element, shifted all the way to the left
+(-100%). The bottom 0 values set the vertical position of the background image to the
+bottom of the element, and 0 sets the z-axis position to the front.
+
+background-size: 200% 2px;: This sets the size of the background image to be 200% of 
+the element's width and 2 pixels tall. This means the image is wider than the element,
+which is what allows the animation to occur.
+
+background-repeat: no-repeat;: This prevents the background image from repeating 
+(i.e., only one instance of the image is shown).
+
+transition: background-position 0.5s;: This sets a transition effect for the 
+background position property, so that when the position changes (as it does in the
+animation), it does so smoothly over a period of 0.5 seconds.
+
+animation: underline 2s infinite;: This sets the animation effect for the element.
+The underline value refers to the name of the @keyframes rule that defines the 
+animation, and 2s sets the duration of the animation to 2 seconds. The infinite value
+makes the animation loop continuously.
+
+@keyframes underline {...}: This is the rule that defines the animation called 
+underline. The 0% block sets the starting position of the background image to the 
+right of the element (-100%). The 100% block sets the final position of the 
+background image to the left of the element (-100%). This creates the effect of the
+underline moving from right to left.
+
+
+

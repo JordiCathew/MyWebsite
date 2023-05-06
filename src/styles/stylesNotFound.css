@@ -1,0 +1,61 @@
+
+.not-found .footer{
+    position: relative;
+    margin-top: 10px;
+}
+
+.imageWrapper{
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.errorMessage1{
+    position: absolute;
+    top: 0;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    z-index: 1;
+    font-family: 'Playfair Display', serif;
+    max-width: 300px;
+}
+
+.errorMessage2{
+    position: absolute;
+    top: 70%;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    z-index: 1;
+    font-family: 'Playfair Display', serif;
+    max-width: 300px;
+}
+
+.errorImage{
+    height: auto;
+    width: 100%;
+    max-width: 650px;
+    z-index: -1;
+    margin-bottom: 30px;
+}
+
+/**************************** Responsive design *****************************/
+
+/* Smaller screens such as phones */
+@media (max-width: 768px) {
+    .errorImage{
+        height: 125%;
+    }
+    
+    .errorMessage2{
+        top: 60%;
+    }
+
+    .not-found .footer{
+        position: absolute;
+    }
+}
+
