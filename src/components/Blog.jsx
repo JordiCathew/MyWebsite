@@ -21,7 +21,7 @@ function Blog(){
     // Fetch data from backend when component mounts
     useEffect(() => {
       console.log("Fetching data from backend...");
-      fetch("/api").then( // Send GET request to "/" endpoint of server
+      fetch("https://mywebsitebackend.onrender.com/api").then( // Send GET request to "/" endpoint of server
         response => response.json() // Parse response as JSON
       ).then(
         data => {

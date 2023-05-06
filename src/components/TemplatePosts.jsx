@@ -21,7 +21,7 @@ function TemplatePosts(){
 
     // API CALL
     useEffect(() => {
-        fetch(`/api/${postId}`)
+        fetch(`https://mywebsitebackend.onrender.com/api/${postId}`)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -43,7 +43,7 @@ function TemplatePosts(){
     //Disqus configuration
     const disqusShortname = "jordicathew"
     const disqusConfig = {
-        url: `http://localhost:3000/blog/${postId}`,
+        url: `http://jordicathew/blog/${postId}`,
         identifier: postId,
         title: post.title
     }
