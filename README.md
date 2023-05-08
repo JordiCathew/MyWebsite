@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# My website (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hey there, this is the README for the frontend of my website, this project is a MERN project (MongoDB, Express.js, React.js, and Node.js for the backend). The main goal of the project was to learn more about web development, which I did, a lot. Please have in mind before seeing my code that this is my first time working with a lot of these libraries so I might have made a lot of naive mistakes, please, tell me if you see them. I will explain what this code consists of and explain only the most important things of it so you don't get bored reading this.
 
-## Available Scripts
+## Routing between different pages
 
-In the project directory, you can run:
+As you might have noticed if you visited the website, the react app consists of a single page web app, this means that no reloads are required to switch between the different pages of the site (I thought this was cooler than having to reload every 30 seconds). This is accomplished by using _React Router_ which is a npm package very useful for client-side rendering. It allows you to define routes and map them to specific components, so that when a user navigates to a specific URL in your application, the corresponding component is rendered, as it is the case in my web-app.
 
-### `npm start`
+You can see this in action in the _AnimatedRoutes.jsx_ component: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```jsx
+    return (
+        <AnimatePresence mode='wait'>
+            <Routes location={location} key={location.pathname}>
+                <Route exact path="/" element={ <Content/> }/>
+                <Route exact path="/blog" element={ <Blog/> }/>
+                <Route exact path="/contact" element={ <ContactPage/> }/>
+                <Route exact path="/blog/:postId" element={<TemplatePosts/> } />
+                <Route path="*" element={ <NotFound/> } />
+            </Routes>
+        </AnimatePresence>
+    );
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Notice also the _AnimatePresence_ component, this is what helps make the animations for the transitions between pages.
 
-### `npm test`
+## Connection to backend 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+All the components are pretty self-explanatory so I will jump right into the connection to the backend, there are two places where this connection occurs, the first is in the Blog component:
 
-### `npm run build`
+```jsx
+    // Fetch data from backend when component mounts
+    useEffect(() => {
+      console.log("Fetching data from backend...");
+      fetch("https://mywebsitebackend.onrender.com/api").then( // Send GET request to "/" endpoint of server
+        response => response.json() // Parse response as JSON
+      ).then(
+        data => {
+          setBackendData(data) // Set state with fetched data
+        }
+      )
+    }, []) // Empty array as second argument ensures useEffect only runs once when component mounts
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the blog component we connect to the url where our backend is running to access all of my posts information, to make a preview of each post.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The second instance where this connection happens is in the _TemplatePosts.jsx_ which as the name suggests serves as a template to expand and read all the individual posts that are uploaded to the database:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+    // API CALL
+    useEffect(() => {
+        fetch(`https://mywebsitebackend.onrender.com/api/${postId}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Post not found');
+        })
+        .then(data => setPost(data))
+        .catch(error => setError(error.message));
+    }, [postId]);
+```
 
-### `npm run eject`
+Not sure if this is the most efficient way to do it, but it works fine. I also added some security checks in the backend to try to minimize risks, check out my backend repository as well, it's called **MyWebsiteBackend**. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can write me via twitter, or any of my social media for suggestions. The links are in my website.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+See the LICENSE.md file for license rights and limitations (GNU GPLv3).
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
