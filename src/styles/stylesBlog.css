@@ -27,6 +27,10 @@
   margin: 20px auto;
 }
 
+.loadingPosts{
+  text-align: center;
+}
+
 .wrapperPost{
   padding: 20px;
 }

@@ -37,17 +37,21 @@ function Blog(){
         exit={{ x: '100%', opacity: 0 }} className='bigBox'>
             <h2 className='blog'>Blog Posts</h2>
             <div className='blogBox'>
-              {backendData.map((post) => (
-                <div classname='wrapperPost' key={post._id}>
-                  <p className='datePosts'>Date: {new Date(post.date).toLocaleDateString()}</p>
-                  {/* The state property is used to pass the entire post object as a prop to the TemplatePosts component. */}
-                  <Link className='no-decoration' to={`/blog/${post._id}`}>
-                    <h2 className='titlePosts'>{post.title}</h2>
-                  </Link>
-                  <p className='contentPosts'>{post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content}</p>
-                  <hr/>
-                </div>
-              ))}
+              {backendData.length === 0 ? (
+              <p className='loadingPosts'>Loading posts (this may take a moment)...</p>
+              ) : (
+                backendData.map((post) => (
+                  <div classname='wrapperPost' key={post._id}>
+                    <p className='datePosts'>Date: {new Date(post.date).toLocaleDateString()}</p>
+                    {/* The state property is used to pass the entire post object as a prop to the TemplatePosts component. */}
+                    <Link className='no-decoration' to={`/blog/${post._id}`}>
+                      <h2 className='titlePosts'>{post.title}</h2>
+                    </Link>
+                    <p className='contentPosts'>{post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content}</p>
+                    <hr/>
+                  </div>
+                ))
+              )}
             </div>
         </motion.div>
     );
