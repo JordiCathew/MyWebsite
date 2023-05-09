@@ -6,6 +6,8 @@ import '../styles/stylesBlog.css';
 function Blog(){
     // Declare state to hold data from backend
     const [backendData, setBackendData] = useState([]); 
+    // Declare state to track loading status
+    const [isLoading, setIsLoading] = useState(true);
 
     // Run a function when the component is mounted (i.e., rendered to the screen)
     // for the first time (This will help us set the position of the footer to relative).
@@ -21,11 +23,12 @@ function Blog(){
     // Fetch data from backend when component mounts
     useEffect(() => {
       console.log("Fetching data from backend...");
-      fetch("https://mywebsitebackend.onrender.com/api").then( // Send GET request to "/" endpoint of server
+      fetch("http://localhost:5000/api").then( // Send GET request to "/" endpoint of server
         response => response.json() // Parse response as JSON
       ).then(
         data => {
           setBackendData(data) // Set state with fetched data
+          setIsLoading(false) // Set loading state to false
         }
       )
     }, []) // Empty array as second argument ensures useEffect only runs once when component mounts
@@ -37,7 +40,10 @@ function Blog(){
         exit={{ x: '100%', opacity: 0 }} className='bigBox'>
             <h2 className='blog'>Blog Posts</h2>
             <div className='blogBox'>
-              {backendData.map((post) => (
+            {backendData.length === 0 ? (
+             <p className='loadingPosts'>Loading posts (this may take a moment)...</p>
+            ) : (
+              backendData.map((post) => (
                 <div classname='wrapperPost' key={post._id}>
                   <p className='datePosts'>Date: {new Date(post.date).toLocaleDateString()}</p>
                   {/* The state property is used to pass the entire post object as a prop to the TemplatePosts component. */}
@@ -47,7 +53,8 @@ function Blog(){
                   <p className='contentPosts'>{post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content}</p>
                   <hr/>
                 </div>
-              ))}
+              ))
+            )}
             </div>
         </motion.div>
     );
