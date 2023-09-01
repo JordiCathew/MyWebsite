@@ -18,17 +18,17 @@ function Blog(){
       };
     }, []);
 
-    // Fetch data from backend when component mounts
     useEffect(() => {
-      console.log("Fetching data from backend...");
-      fetch("https://mywebsitebackend.onrender.com/api").then( // Send GET request to "/" endpoint of server
-        response => response.json() // Parse response as JSON
-      ).then(
-        data => {
-          setBackendData(data) // Set state with fetched data
-        }
-      )
-    }, []) // Empty array as second argument ensures useEffect only runs once when component mounts
+      console.log("Fetching data from posts.json...");
+      fetch('/posts.json') // Fetch from the public folder
+        .then(response => response.json())
+        .then(data => {
+          setBackendData(data); // Set state with fetched data
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+    }, []);// Empty array as second argument ensures useEffect only runs once when component mounts
 
     return (
         <motion.div
@@ -36,15 +36,18 @@ function Blog(){
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: '100%', opacity: 0 }} className='bigBox'>
             <h2 className='blog'>Blog Posts</h2>
+            <div className='diagonalMessage'>
+              <p className='informationPosts'>Click the post titles to read posts!</p>
+            </div>
             <div className='blogBox'>
               {backendData.length === 0 ? (
               <p className='loadingPosts'>Loading posts (this may take a moment)...</p>
               ) : (
                 backendData.map((post) => (
-                  <div classname='wrapperPost' key={post._id}>
-                    <p className='datePosts'>Date: {new Date(post.date).toLocaleDateString()}</p>
+                  <div className='wrapperPost' key={post.id}>
+                    <p className='datePosts'>Date: {post.date}</p>
                     {/* The state property is used to pass the entire post object as a prop to the TemplatePosts component. */}
-                    <Link className='no-decoration' to={`/blog/${post._id}`}>
+                    <Link className='no-decoration' to={`/blog/${post.id}`}>
                       <h2 className='titlePosts'>{post.title}</h2>
                     </Link>
                     <p className='contentPosts'>{post.content.length > 100 ? post.content.slice(0, 100) + '...' : post.content}</p>

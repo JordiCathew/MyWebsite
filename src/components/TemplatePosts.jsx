@@ -21,16 +21,25 @@ function TemplatePosts(){
 
     // API CALL
     useEffect(() => {
-        fetch(`https://mywebsitebackend.onrender.com/api/${postId}`)
-        .then(response => {
+        fetch('/posts.json') // You can change to the actual path of your JSON file
+          .then(response => {
             if (response.ok) {
-                return response.json();
+              return response.json();
             }
-            throw new Error('Post not found');
-        })
-        .then(data => setPost(data))
-        .catch(error => setError(error.message));
-    }, [postId]);
+            throw new Error('Posts were not found');
+          })
+          .then(data => {
+            // Find the post with the matching ID
+            const SelectedPost = data.find(post => post.id === parseInt(postId));
+      
+            if(SelectedPost) {
+              setPost(SelectedPost);
+            } else {
+              throw new Error('Post not found');
+            }
+          })
+          .catch(error => setError(error.message));
+      }, [postId]);
 
     if (error) {
         return <h2>{error}</h2>;
@@ -55,7 +64,7 @@ function TemplatePosts(){
             exit={{ x: '100%', opacity: 0 }}
         >
             <div className="date">
-                <p className='datePost'>Date: {new Date(post.date).toLocaleDateString()}</p>
+                <p className='datePost'>Date: {post.date}</p>
             </div>
             <div className="titlePostSection">
                 <h1 className="title">{ post.title }</h1>

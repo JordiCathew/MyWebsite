@@ -146,10 +146,6 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
-.fa-square-twitter:hover{
-    color: #1DA1F2;
-}
-
 .fa-envelope:hover{
     color: red;
 }

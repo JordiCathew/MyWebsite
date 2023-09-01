@@ -8,7 +8,7 @@ function Footer(){
             <p>© {year} Jordi Cathew</p>
             <div className="icons">
             <a href="https://twitter.com/JordiCathew" target="_blank">
-                <i className="fa-brands fa-square-twitter icons-footer"></i>
+                <i className="fa-brands fa-x-twitter icons-footer"></i>
             </a>
             <a href="mailto:mvnagneloni@gmail.com" target="_blank">
                 <i className="fa-regular fa-envelope icons-footer"></i>

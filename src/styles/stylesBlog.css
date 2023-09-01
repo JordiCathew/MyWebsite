@@ -21,6 +21,19 @@
   font-size: 2.2rem;
 }
 
+.diagonalMessage{
+  top: 25px;
+  position: absolute;
+  transform: rotate(-15deg);
+  z-index: 1; /* Ensure it's above other content */
+}
+
+.informationPosts{
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .blogBox{
   border: 1px solid black;
   width: 70%;
@@ -32,7 +45,7 @@
 }
 
 .wrapperPost{
-  padding: 20px;
+  padding: 2px 20px;
 }
 
 .wrapperPost:hover{
@@ -70,3 +83,8 @@
    color: inherit;
 }
 
+@media (max-width: 768px) {
+  .diagonalMessage {
+    display: none; /* Hide the diagonal message */
+  }
+}
