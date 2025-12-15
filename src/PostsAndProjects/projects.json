@@ -4,7 +4,7 @@
         "title": "Real-Estate Management SaaS Platform – Final Year Project for a real estate company (Inmobiliaria i3) (ONGOING)",
         "description": "• Designed and developed a production-grade, multi-tenant web platform for end-to-end real estate management (owners, tenants, properties, payments, reporting). \n• Built a secure PDF processing engine (Multer + parsing) for automated payment validation from insurance statements with visual error highlighting and mismatch detection. \n• Implemented clean architecture, dependency injection, role-based access control (JWT), audit logging, and unit/integration tests. \n• Creating advanced reporting dashboards with dynamic filtering, inline editing, accordion details, and Excel/PDF export functionality. Source code confidential due to NDA – available to discuss architecture, challenges, and impact in detail during interviews.",
         "technologies": ["TypeScript", "Node.js", "Express", "React", "PostgreSQL", "AWS (ECS + RDS)", "Jest", "Github Actions"],
-        "images": ["/images/Rentflow/RENTFLOW1.PNG", "/images/Rentflow/RENTFLOW2.PNG", "/images/Rentflow/RENTFLOW3.PNG", "/images/Rentflow/RENTFLOW4.PNG"],
+        "images": ["/images/Rentflow/RENTFLOW1.png", "/images/Rentflow/RENTFLOW2.png", "/images/Rentflow/RENTFLOW3.png", "/images/Rentflow/RENTFLOW4.png"],
         "link": "NOT PUBLIC YET DUE TO NDA"
     },
     {
@@ -12,7 +12,7 @@
         "title": "Restaurant application app (Java)",
         "description": "Designed and developed a prototype app for a fictional restaurant, implementing core features like order reservations using Observer, State, and Facade among other design patterns, focusing on modularity, maintainability, and scalability of the application...",
         "technologies": ["Java"],
-        "images": ["/images/JavaApp/JAVAAPP1.PNG", "/images/JavaApp/JAVAAPP2.PNG", "/images/JavaApp/JAVAAPP3.PNG", "/images/JavaApp/JAVAAPP4.PNG"],
+        "images": ["/images/JavaApp/JAVAAPP1.png", "/images/JavaApp/JAVAAPP2.png", "/images/JavaApp/JAVAAPP3.png", "/images/JavaApp/JAVAAPP4.png"],
         "link": "https://github.com/JordiCathew/RestaurantePrototipoDDA"
     },
     {
@@ -20,7 +20,7 @@
         "title": "Personal Projects",
         "description": "Diverse types of projects (Game solver with AI, traffic signs recognition, etc), mostly revolving AI with Python, tensorflow and keras.",
         "technologies": ["Python", "Tensorflow", "Keras"],
-        "images": ["/images/AI/AI1.PNG"],
+        "images": ["/images/AI/AI1.png"],
         "link": "https://github.com/JordiCathew/"
     }
 ]
