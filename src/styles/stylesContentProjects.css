@@ -1,0 +1,33 @@
+.h2sContent{
+    font-family: 'Amatic SC', cursive;
+    margin: 20px 0px 10px 0px;
+    text-align: center;
+    font-size: 2.2rem;
+    padding-bottom: 10px;
+}
+.row{
+    align-items: center;
+}
+
+.row h3{
+    font-family: 'Amatic SC', cursive;
+    margin: 20px 0px 10px 0px;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 0px 10px 0px 10px;
+}
+
+.row p{
+    color: black;
+    white-space: pre-line;
+}
+
+.technologiesUsed {
+    font-family: 'Quicksand', sans-serif;
+    padding: 0px 0px 0px 80px;
+    color: black;
+}
+
+.crsl{
+    padding-right: 40px;
+}

@@ -2,12 +2,10 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/stylesBlog.css';
+import posts from '../PostsAndProjects/posts.json';
 
 function Blog(){
-    // Declare state to hold data from backend
-    const [backendData, setBackendData] = useState([]); 
-
-    // Run a function when the component is mounted (i.e., rendered to the screen)
+    // This useEffect runs when the component is mounted (i.e., rendered to the screen)
     // for the first time (This will help us set the position of the footer to relative).
     useEffect(() => {
       document.body.classList.add('blog-page');
@@ -17,18 +15,6 @@ function Blog(){
         document.body.classList.remove('blog-page');
       };
     }, []);
-
-    useEffect(() => {
-      console.log("Fetching data from posts.json...");
-      fetch('/posts.json') // Fetch from the public folder
-        .then(response => response.json())
-        .then(data => {
-          setBackendData(data); // Set state with fetched data
-        })
-        .catch(error => {
-          console.error("Error fetching data:", error);
-        });
-    }, []);// Empty array as second argument ensures useEffect only runs once when component mounts
 
     return (
         <motion.div
@@ -40,10 +26,10 @@ function Blog(){
               <p className='informationPosts'>Click the post titles to read posts!</p>
             </div>
             <div className='blogBox'>
-              {backendData.length === 0 ? (
+              {posts.length === 0 ? (
               <p className='loadingPosts'>Loading posts (this may take a moment)...</p>
               ) : (
-                backendData.map((post) => (
+                posts.map((post) => (
                   <div className='wrapperPost' key={post.id}>
                     <p className='datePosts'>Date: {post.date}</p>
                     {/* The state property is used to pass the entire post object as a prop to the TemplatePosts component. */}

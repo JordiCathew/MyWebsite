@@ -7,12 +7,13 @@
 
 .contentContact p{
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 570;
     text-align: left;
     line-height: 2;
     margin: 0 auto;
     max-width: 500px;
+    color: black;
 }
 
 .buttons-wrapper{
